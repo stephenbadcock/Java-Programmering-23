@@ -17,8 +17,10 @@ public class ex18 {
         id = keyboard.nextInt();
 
         System.out.print("First name: ");
-        firstName = keyboard.nextLine();
+        firstName = keyboard.next();
 
+        keyboard.nextLine();
+        
         System.out.print("Last name: ");
         lastName = keyboard.nextLine();
 
@@ -30,11 +32,11 @@ public class ex18 {
 
         System.out.println("Your information:");
 
-        System.out.print("Login: " + login);
-        System.out.print("ID: " + id);
-        System.out.print("Name: " + firstName + " " + lastName);
-        System.out.print("GPA: " + gpa);
-        System.out.print("Grade: " + grade);
+        System.out.println("\tLogin:" + "\t" + login);
+        System.out.println("\tID:" + "\t" + id);
+        System.out.println("\tName:" + "\t" + firstName + " " + lastName);
+        System.out.println("\tGPA:" + "\t" + gpa);
+        System.out.println("\tGrade:" + "\t" + grade);
 
     }
 }

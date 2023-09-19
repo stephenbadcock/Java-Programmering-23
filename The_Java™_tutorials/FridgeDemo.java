@@ -19,15 +19,20 @@ class FridgeDemo {
         secondFridge.togglePower();
         secondFridge.lowerTemp(8);
         secondFridge.defrostFridge();
-        secondFridge.defrostFridge();
-        secondFridge.defrostFridge();
-        System.out.println(); 
+        System.out.println();
+        
+        combinedFridgeFreezer firstCombined = new combinedFridgeFreezer();
+
+        firstCombined.lowerFreezerTemp(5);
+        firstCombined.lowerTemp(5);
+        firstCombined.higherFreezerTemp(20);
+        firstCombined.higherTemp(6);
     }
 }
 
 class Fridge {
     int fridgeTemp = 8, defrostings = 0;
-    boolean power = true;
+    String power = "on";
 
     void printInitialStates() {
         System.out.println("Initial values:");
@@ -57,14 +62,30 @@ class Fridge {
     }    
 
     void togglePower() {
-        if ( power == true ) {
-            power = false;
+        if ( power.equals("on") ) {
+            power = "off";
         } else {
-            power = true;
+            power = "on";
         }
 
         System.out.println("Fridge power: " + power);
     }
+}
+
+class combinedFridgeFreezer extends Fridge {
+    int freezerTemp = -18;
+
+    void lowerFreezerTemp (int lowerFreezerTemp) {
+        freezerTemp -= lowerFreezerTemp;
+
+        System.out.println("Freezer temp: " + freezerTemp);
+    }
+
+    void higherFreezerTemp (int higherFreezerTemp) {
+        freezerTemp += higherFreezerTemp;
+
+        System.out.println("Freezer temp: " + freezerTemp);
+    }    
 }
 
 

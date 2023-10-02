@@ -14,6 +14,7 @@ public class Player {
     }
 
     public void setScore() {
+        increaseScore();
     }
 
     public int getScore() {
@@ -22,6 +23,10 @@ public class Player {
 
     public void rollDice() {
         die.roll();
+    }
+
+    public int getDieValue() {
+        return die.getCurrentValue();
     }
 
     public void increaseScore() {

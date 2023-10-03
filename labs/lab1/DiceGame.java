@@ -29,10 +29,13 @@ public class DiceGame {
         player.addDie(numberOfSides);
 
         for(int i = 1; i <= numberOfRounds; i++) {
-            System.out.println("Kast #" + i);
-            System.out.println("==========");
-            System.out.print("Gissa på ett värde mellan 1 och " + numberOfSides + ": ");
-            currentGuess = scanner.nextInt();
+            System.out.println("Kast " + i + " av " + numberOfRounds);
+            System.out.println("==============");
+
+            do {
+                System.out.print("Gissa på ett värde mellan 1 och " + numberOfSides + ": ");
+                currentGuess = scanner.nextInt();
+            } while(currentGuess < 1 || currentGuess > numberOfSides);
             System.out.println();
 
             System.out.println("Tärningen kastas...");
@@ -43,13 +46,12 @@ public class DiceGame {
             }
 
             player.rollDice();
-            System.out.println(player.getDieValue());
 
             if(currentGuess == player.getDieValue()) {
-                System.out.println("Korrekt!");
+                System.out.println("Du gissade rätt!");
                 player.setScore();
             } else {
-                System.out.println("Fel!");
+                System.out.println("Du gissade fel!");
             }
             
             System.out.println();
@@ -57,7 +59,7 @@ public class DiceGame {
             System.out.println();
         }
 
-        System.out.println("Du gissade rätt på " + player.getScore() + " av " + numberOfRounds + " kast. Snyggt jobbat, " + player.getName());
+        player.evaluateScore(numberOfRounds);
 
         scanner.close();
     }

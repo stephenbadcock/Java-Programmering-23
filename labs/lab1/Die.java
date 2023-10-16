@@ -1,12 +1,10 @@
-package labs.lab1;
-
 import java.util.Random;
 
 public class Die {
-    private int numberOfSides, currentValue, min = 1;
+    private int numberOfSides, currentValue, minimumSides = 1;
     private Random random;
 
-    Die(int numberOfSides) {
+    public Die(int numberOfSides) {
         this.numberOfSides = numberOfSides;
     }
 
@@ -21,41 +19,41 @@ public class Die {
     public void roll() {
         random = new Random();
 
-        currentValue = random.nextInt(numberOfSides + 1 - min) + min;
+        currentValue = random.nextInt(numberOfSides + 1 - minimumSides) + minimumSides;
 
         System.out.println();
 
-        if(currentValue == 1) {
+        if (currentValue == 1) {
             System.out.println("█████████");
             System.out.println("█████████");
             System.out.println("████ ████");
             System.out.println("█████████");
             System.out.println("█████████");
-        } else if(currentValue == 2) {
+        } else if (currentValue == 2) {
             System.out.println("█████████");
             System.out.println("██████ ██");
             System.out.println("█████████");
             System.out.println("██ ██████");
             System.out.println("█████████");
-        } else if(currentValue == 3) {
+        } else if (currentValue == 3) {
             System.out.println("█████████");
             System.out.println("██ ██████");
             System.out.println("████ ████");
             System.out.println("██████ ██");
             System.out.println("█████████");
-        } else if(currentValue == 4) {
+        } else if (currentValue == 4) {
             System.out.println("█████████");
             System.out.println("██ ███ ██");
             System.out.println("█████████");
             System.out.println("██ ███ ██");
             System.out.println("█████████");
-        } else if(currentValue == 5) {
+        } else if (currentValue == 5) {
             System.out.println("█████████");
             System.out.println("██ ███ ██");
             System.out.println("████ ████");
             System.out.println("██ ███ ██");
             System.out.println("█████████");
-        } else if(currentValue == 6) {
+        } else if (currentValue == 6) {
             System.out.println("█████████");
             System.out.println("██ █ █ ██");
             System.out.println("█████████");

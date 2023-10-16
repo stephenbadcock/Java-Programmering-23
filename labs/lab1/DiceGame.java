@@ -1,5 +1,3 @@
-package labs.lab1;
-
 import java.util.Scanner;
 
 public class DiceGame {
@@ -8,10 +6,12 @@ public class DiceGame {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("------------------");
-        System.out.println("- Tärningsspelet -");
-        System.out.println("------------------");
-        System.out.println();
+        System.out.println("╔════════════════════╗");
+        System.out.println("║ ╔════════════════╗ ║");
+        System.out.println("║ ║ Tärningsspelet ║ ║");
+        System.out.println("║ ╚════════════════╝ ║");
+        System.out.println("╚════════════════════╝");
+        System.out.println(); 
 
         System.out.print("Välj hur många omgångar vill du spela: ");
         numberOfRounds = scanner.nextInt();
@@ -28,30 +28,23 @@ public class DiceGame {
 
         player.addDie(numberOfSides);
 
-        for(int i = 1; i <= numberOfRounds; i++) {
+        for (int i = 1; i <= numberOfRounds; i++) {
             System.out.println("Kast " + i + " av " + numberOfRounds);
             System.out.println("==============");
 
             do {
                 System.out.print("Gissa på ett värde mellan 1 och " + numberOfSides + ": ");
                 currentGuess = scanner.nextInt();
-            } while(currentGuess < 1 || currentGuess > numberOfSides);
+            } while (currentGuess < 1 || currentGuess > numberOfSides);
             System.out.println();
-
-            System.out.println("Tärningen kastas...");
-            try {
-                Thread.sleep(500);
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
 
             player.rollDice();
 
-            if(currentGuess == player.getDieValue()) {
-                System.out.println("Du gissade rätt!");
+            if (currentGuess == player.getDieValue()) {
+                System.out.println("Du gissade rätt, " + player.getName() + "!");
                 player.setScore();
             } else {
-                System.out.println("Du gissade fel!");
+                System.out.println("Du gissade fel, " + player.getName() + "!");
             }
             
             System.out.println();

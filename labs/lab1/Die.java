@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Die {
-    private int numberOfSides, currentValue, minimumSides = 1;
+    private int numberOfSides, currentValue;
     private Random random;
 
     public Die(int numberOfSides) {
@@ -19,7 +19,7 @@ public class Die {
     public void roll() {
         random = new Random();
 
-        currentValue = random.nextInt(numberOfSides + 1 - minimumSides) + minimumSides;
+        currentValue = random.nextInt(numberOfSides) + 1;
 
         System.out.println();
 

@@ -23,7 +23,7 @@ public class Player {
         System.out.println("Tärningen kastas...");
         
         try {
-            Thread.sleep(500);
+            Thread.sleep(600);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
@@ -55,7 +55,7 @@ public class Player {
             } else {
                 System.out.println("Otur, " + name + ". Testa gärna igen.");
             }
-        } else if (hitRateRounded > 0 && hitRateRounded < 25) {
+        } else if (hitRateRounded < 25) {
             System.out.println("Det gick inget vidare, " + name + "...");
         } else if (hitRateRounded < 50) {
             System.out.println("Hyfsat försök, " + name + "!");
@@ -64,11 +64,15 @@ public class Player {
         } else if (hitRateRounded < 100) {
             System.out.println("Snyggt gissat, " + name + "!");
         } else if (hitRateRounded == 100) {
-            if (numberOfRounds > 3) {
-                System.out.println("Jag hade lämnat in en lottorad om jag var du, " + name + ".");
+            if (die.getNumberOfSides() == 1) {
+                System.out.println("Kom igen, " + name + ". Du valde en ensidig tärning...");
             } else {
-                System.out.println("Du kan vara synsk, " + name + ", men jag vill se dig gissa ett par gånger till...");
+                if (numberOfRounds > 3) {
+                    System.out.println("Jag hade lämnat in en lottorad om jag var du, " + name + ".");
+                } else {
+                    System.out.println("Du kan vara synsk, " + name + ", men jag vill se dig gissa ett par gånger till...");
+                }
             }
-        }  
+        }
     }
 }

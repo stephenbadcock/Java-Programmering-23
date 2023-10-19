@@ -6,15 +6,15 @@ public class DiceGame {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("╔════════════════════╗");
-        System.out.println("║ ╔════════════════╗ ║");
-        System.out.println("║ ║ Tärningsspelet ║ ║");
-        System.out.println("║ ╚════════════════╝ ║");
-        System.out.println("╚════════════════════╝");
-        System.out.println(); 
+        System.out.println("╔════════════════════════════╗");
+        System.out.println("║   Kast med liten tärning   ║");
+        System.out.println("╚════════════════════════════╝");
+        System.out.println();
+        System.out.println("Försök att gissa tärningens värde.");
+        System.out.println();
 
         do {
-            System.out.print("Välj hur många omgångar vill du spela: ");
+            System.out.print("Välj hur många omgångar du vill spela: ");
             numberOfRounds = scanner.nextInt();
         } while (numberOfRounds < 1);
         
@@ -47,11 +47,13 @@ public class DiceGame {
                 player.setScore();
             } else {
                 System.out.println("Du gissade fel, " + player.getName() + ".");
+            }          
+            System.out.println();
+
+            if (i != numberOfRounds) {
+                System.out.println("Dina poäng: " + player.getScore());
+                System.out.println();
             }
-            
-            System.out.println();
-            System.out.println("Dina poäng: " + player.getScore());
-            System.out.println();
         }
 
         player.evaluateScore(numberOfRounds);

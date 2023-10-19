@@ -1,7 +1,8 @@
 import java.util.Random;
 
 public class Die {
-    private int numberOfSides, currentValue;
+    private int numberOfSides;
+    private int currentValue;
     private Random random;
 
     public Die(int numberOfSides) {
@@ -20,8 +21,6 @@ public class Die {
         random = new Random();
 
         currentValue = random.nextInt(numberOfSides) + 1;
-
-        System.out.println();
 
         if (currentValue == 1) {
             System.out.println("█████████");

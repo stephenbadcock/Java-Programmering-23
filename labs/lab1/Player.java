@@ -21,10 +21,11 @@ public class Player {
 
     public void rollDice() {
         System.out.println("Tärningen kastas...");
+        System.out.println();
         
         try {
             Thread.sleep(600);
-        } catch(InterruptedException ex) {
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
 
